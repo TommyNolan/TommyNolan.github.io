@@ -194,3 +194,14 @@ footer {
         gap: 8px;
     }
 }
+.status-note {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 10px 14px;
+
+    font-size: 0.85rem;
+    color: #555;
+
+    background: #ececea;
+    border-left: 3px solid #333;
+}
