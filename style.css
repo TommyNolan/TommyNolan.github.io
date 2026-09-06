@@ -84,6 +84,16 @@ main {
     color: #555;
 }
 
+.status-note {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: #555;
+    background: #ececea;
+    border-left: 3px solid #333;
+}
+
 #projects {
     padding: 40px 0 120px;
 }
@@ -96,42 +106,44 @@ main {
     border-bottom: 1px solid #ccc;
 }
 
+/* =========================================================
+   PROJECT GRID
+========================================================= */
+
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px;
+    align-items: start;
 }
 
 .project-card {
     display: block;
+    min-width: 0;
+    width: 100%;
     background: white;
     border: 1px solid #ddd;
+    overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .project-image {
-    aspect-ratio: 16 / 10;
     width: 100%;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
+    background: #f3f3f3;
 }
 
 .project-image img {
+    display: block;
     width: 100%;
     height: 100%;
-object-fit: contain;
-}
-
-.placeholder {
-    background: #e8e8e4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
+    object-fit: contain;
 }
 
 .project-info {
@@ -157,6 +169,18 @@ object-fit: contain;
     opacity: 0.65;
 }
 
+.placeholder {
+    background: #e8e8e4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
 #about {
     padding: 80px 0 140px;
     max-width: 750px;
@@ -167,6 +191,10 @@ object-fit: contain;
     color: #555;
 }
 
+/* =========================================================
+   FOOTER
+========================================================= */
+
 footer {
     border-top: 1px solid #d5d5d0;
     padding: 35px 6%;
@@ -176,35 +204,6 @@ footer {
     font-size: 0.9rem;
 }
 
-@media (max-width: 750px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .nav-links {
-        gap: 14px;
-    }
-
-    .hero {
-        padding: 90px 0;
-    }
-
-    footer {
-        flex-direction: column;
-        gap: 8px;
-    }
-}
-.status-note {
-    display: inline-block;
-    margin-top: 28px;
-    padding: 10px 14px;
-
-    font-size: 0.85rem;
-    color: #555;
-
-    background: #ececea;
-    border-left: 3px solid #333;
-}
 /* =========================================================
    PROJECT PAGES
 ========================================================= */
@@ -229,7 +228,6 @@ footer {
     color: #555;
 }
 
-
 /* VIDEO */
 
 .project-video {
@@ -247,12 +245,35 @@ footer {
     color: #777 !important;
 }
 
+/* PROJECT IMAGE GRIDS */
+
+.image-grid-two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.image-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.image-card img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    background: #f3f3f3;
+}
 
 /* MODELLING PROCESS */
 
 .process-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1px;
     background: #ddd;
     border: 1px solid #ddd;
@@ -263,6 +284,7 @@ footer {
     gap: 20px;
     background: #f7f7f5;
     padding: 30px;
+    min-width: 0;
 }
 
 .process-number {
@@ -282,7 +304,6 @@ footer {
     font-size: 0.95rem;
 }
 
-
 /* TECHNICAL LIST */
 
 .technical-list {
@@ -300,10 +321,27 @@ footer {
     padding-bottom: 120px;
 }
 
+/* GEARBOX PREVIEW */
 
-/* MOBILE PROJECT LAYOUT */
+.gearbox-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 750px) {
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-grid-two {
+        grid-template-columns: 1fr;
+    }
 
     .process-grid {
         grid-template-columns: 1fr;
@@ -313,33 +351,16 @@ footer {
         columns: 1;
     }
 
-}
-.gearbox-preview video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.image-grid-two {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 20px;
-}
+    .nav-links {
+        gap: 14px;
+    }
 
-.image-card img {
-    width: 100%;
-    display: block;
-    border: 1px solid #ddd;
-    background: #f3f3f3;
-}
+    .hero {
+        padding: 90px 0;
+    }
 
-.image-card {
-    display: flex;
-    flex-direction: column;
-}
-
-@media (max-width: 750px) {
-    .image-grid-two {
-        grid-template-columns: 1fr;
+    footer {
+        flex-direction: column;
+        gap: 8px;
     }
 }
